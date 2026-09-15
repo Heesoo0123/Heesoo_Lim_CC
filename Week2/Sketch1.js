@@ -10,6 +10,23 @@ function setup(){
 
 }
 function draw(){
-ellipse(mouseX,mouseY,50,50)
+   fill(255,0,0)
+   stroke(0,0,255)
+ellipse(mouseX,mouseY,30,50)
     
+}
+
+// function mouseDragged() {
+// line(pmouseX,pmouseY,mouseX,mouseY)
+// }
+function keyPressed() {
+
+    if (key === 'e') {
+        background(255,0,30)
+    // Code to run.
+  }
+   if (key === 'r') {
+        background(0,0,255)
+    // Code to run.
+  }
 }
