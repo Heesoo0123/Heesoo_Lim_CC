@@ -14,7 +14,7 @@ ellipse(mouseX,mouseY,50,50)
     
 }
 
-function mouseDragged()
+function mouseDragged(){
 //bsvkhounf(100)
   line(mouseX,mouseY,pmouseX,pmouseY)
 
