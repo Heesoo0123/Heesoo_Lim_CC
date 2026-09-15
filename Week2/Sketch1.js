@@ -1,12 +1,12 @@
 function setup(){
    createCanvas(400, 400)
-   background(100)
+   background(173,252,255)
 
-   fill(100,0,0)
+   fill(114,0,145)
    //noStroke()
 
-   strokeWeight(10)
-   stroke(200,100,0)
+   strokeWeight(5)
+   stroke(255,0,30)
 
 }
 function draw(){
