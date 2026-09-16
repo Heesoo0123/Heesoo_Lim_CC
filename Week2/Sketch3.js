@@ -34,3 +34,9 @@ function draw(){
    y += ySpeed;
    
 }
+
+function keyPressed(){
+   if (key === 'e') {
+         background(255,0,30)
+   }
+}
