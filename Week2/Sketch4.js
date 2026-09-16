@@ -1,48 +1,27 @@
 // // Color changing with mouseY
-let r =0, g =0, b = 0;
+// let r =0, g =0, b = 0;
 
-function setup(){
-    createCanvas(windowWidth, windowHeight)
-    rectMode(CORNER);
-    // colorMode(HSB);
-
-
-    background(0)
-    // noStroke();
-
-}
-function draw(){
-
-    r = map(mouseY, 0, height,150,500)
-    g = map(mouseY, 0, height,200,150)
-    b = map(mouseY, 0, height,250,0)
-    
-    fill(r,g,b,150)
-    stroke(100,50,255,150)
-    rect(mouseX, mouseY, 80 , 150);
-}
-
-//Falling ball with random x position
-// let y = 0;
-// let x;
 // function setup(){
-//     createCanvas(500, 500)
+//     createCanvas(windowWidth, windowHeight)
+//     rectMode(CORNER);
+//     // colorMode(HSB);
 
-//     x = width/2;
-//     strokeWeight(5)
+
+//     background(0)
+//     // noStroke();
+
 // }
 // function draw(){
-//     background(100,400,140)
-//     stroke(255,0,0)
-//     ellipse(x,y,100,100)
 
-//     y+= 10
-//     if(y > height - 50){
-//         y = -200
-//         x = random(0,width)
-//     }
-//     print(y)
+//     r = map(mouseY, 0, height,150,500)
+//     g = map(mouseY, 0, height,200,150)
+//     b = map(mouseY, 0, height,250,0)
+    
+//     fill(r,g,b,150)
+//     stroke(100,50,255,150)
+//     rect(mouseX, mouseY, 80 , 150);
 // }
+
 
 // Example of bouncing ball
 // let y = 0;
@@ -96,33 +75,41 @@ function draw(){
 
 
 // // Example of color changing with mouseY
-// let col, col1, col2
+let col, col1, col2
 
-// function setup(){
+function setup(){
     
-//     createCanvas(windowWidth, windowHeight)
-//     rectMode(CENTER);
+    createCanvas(windowWidth, windowHeight)
+    rectMode(CENTER);
 
-//     col1 = color(0,200,255);
-//     col2 = color(255,100,0);
-//     background(0)
-//     // noStroke();
+    col1 = color(0,100,255);
+    col2 = color(255,100,0);
+    background(0)
+    noStroke();
 
-// }
-// function draw(){
+}
+function draw(){
 
-//     let val = map(mouseY,0,height,0,1)
+    let val = map(mouseY,0,height,0,1)
+    let ellipseHeight = 30;
+    let randomWidth = random(10,300);
+
+    if (val > 0.5){
+        ellipseHeight = map(val,0.5,1,10,random(10,200));
+    }
+
     
-//     col = lerpColor(col1, col2,val)
-//     fill(col)
+    col = lerpColor(col1, col2,val)
+    fill(col)
 
-//     rect(width/2, mouseY, width , 40);
+    rect(width/2, mouseY, width , 40);
     
-//     col = lerpColor(col2, col1,val)
-//     fill(col)
+    col = lerpColor(col2, col1,val)
+    fill(col)
 
-//     rect(width/2, mouseY, width/4 , 40)
-// }
+    ellipse(width/2, mouseY, randomWidth , ellipseHeight)
+}
+
 
 
 
