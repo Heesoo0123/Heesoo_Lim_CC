@@ -1,3 +1,28 @@
+// // Color changing with mouseY
+let r =0, g =0, b = 0;
+
+function setup(){
+    createCanvas(windowWidth, windowHeight)
+    rectMode(CORNER);
+    // colorMode(HSB);
+
+
+    background(0)
+    // noStroke();
+
+}
+function draw(){
+
+    r = map(mouseY, 0, height,150,500)
+    g = map(mouseY, 0, height,200,150)
+    b = map(mouseY, 0, height,250,0)
+    
+    fill(r,g,b,150)
+    stroke(100,50,255,150)
+    rect(mouseX, mouseY, 80 , 150);
+}
+
+//Falling ball with random x position
 // let y = 0;
 // let x;
 // function setup(){
@@ -67,30 +92,10 @@
 //     print(y)
 // }
 
-// Example of color changing with mouseY
-let r =0, g =0, b = 0;
-
-function setup(){
-    createCanvas(windowWidth, windowHeight)
-    rectMode(CORNER);
-    // colorMode(HSB);
 
 
-    background(0)
-    // noStroke();
 
-}
-function draw(){
-
-    r = map(mouseY, 0, height,150,500)
-    g = map(mouseY, 0, height,200,150)
-    b = map(mouseY, 0, height,250,0)
-    
-    fill(r,g,b,150)
-    stroke(100,50,255,150)
-    rect(mouseX, mouseY, 80 , 150);
-}
-//Example of color changing with mouseY
+// // Example of color changing with mouseY
 // let col, col1, col2
 
 // function setup(){
@@ -101,7 +106,7 @@ function draw(){
 //     col1 = color(0,200,255);
 //     col2 = color(255,100,0);
 //     background(0)
-//     noStroke();
+//     // noStroke();
 
 // }
 // function draw(){
@@ -121,7 +126,7 @@ function draw(){
 
 
 
-
+//Example of X and Y changinng with mouseX and mouseY
 // let y = 0;
 // function setup(){
 //     createCanvas(windowWidth,windowHeight)
