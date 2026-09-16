@@ -1,24 +1,30 @@
 function setup(){
    createCanvas(windowWidth, windowHeight)
-   background(100)
+   background(100,200,255)
 
-   fill(100,0,0)
-   //noStroke()
+   fill(100,25,20)
+   noStroke()
 
-   StrokeWeight(10)
-   Stroke(200,100,0)
+   strokeWeight(5)
+   stroke(200,100,0)
 
 }
 function draw(){
 ellipse(mouseX,mouseY,50,50)
+ellipse(mouseX,mouseY,10,10)
+fill(100,200,255)
     
 }
 
 function mouseDragged(){
-//bsvkhounf(100)
-  line(mouseX,mouseY,pmouseX,pmouseY)
+  line(pmouseX,pmouseY,mouseX,mouseY)
+}
 
-  function mousepressed //erase 
-
-  function Keypressed // erase when you press the key {
+function mousePressed(){
+  background(0,40,50)
   }
+function keyPressed(){
+   if (key === 'e') {
+        background(255,0,30)
+  }
+}
