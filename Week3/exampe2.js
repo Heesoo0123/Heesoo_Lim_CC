@@ -16,14 +16,9 @@ function setup(){
 
 function draw(){
 
-    stroke(255)
-    strokeWeight(2)
-    noFill()
-
-function draw(){
-
     background(0)
 
+    stroke(255)
     strokeWeight(2)
     noFill()
 
@@ -35,19 +30,19 @@ function draw(){
     x = lerp(0,width,0.75)
 
     push()
-    translate(width/2,height/2)
-    rect(0,0,50)
+    translate(x,height/2)
+    rect(0,0,50,50)
     pop()
-}
+
 
 // follow my mouse
 
-lerpMouseX = lerp(lerpMouseY, mouseX, 0.01)  //lerp 
-lerpMouseY = lerp(lerpMouseX, mouseY, 0.01) 
+lerpMouseX = lerp(lerpMouseX, mouseX, 0.01)  //lerp 
+lerpMouseY = lerp(lerpMouseY, mouseY, 0.01) 
 
 push()
     translate(lerpMouseX,lerpMouseY)
-    rect(0,0,50)
+    rect(0,0,50,50)
     pop()
 
 }
