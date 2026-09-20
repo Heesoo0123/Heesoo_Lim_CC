@@ -8,7 +8,7 @@ function setup(){
     angleMode(DEGREES)
 
     background(0)
-    nofill()
+    noFill()
     strokeWeight(2)
     stroke(255)
 
