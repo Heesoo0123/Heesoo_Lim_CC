@@ -19,7 +19,7 @@ function draw(){
     // translate(width/2-mouseX,0)
     
     
-    push()
+    // push()
 
     // translate(width/2,height/2) // rotate and translate order changes the pivot point of the rotation
     // rotate(r)
@@ -45,6 +45,8 @@ function draw(){
 
     // line(0,0,0,200)
     // rotate(-r)
+
+    push()
 
 
     translate(0,200) // rotate and translate order changes the pivot point of the rotation
@@ -95,6 +97,6 @@ function draw(){
 
 
 
-    r++
+    // r++
 }
 

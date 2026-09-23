@@ -1,98 +1,63 @@
-function setup(){
-    createCanvas(600, 600, WEBGL)
-    angleMode(DEGREES)
+function setup() {
+  createCanvas(600, 800);
+  angleMode(DEGREES);
+  rectMode(CENTER);
 }
 
-function draw(){
-    background(220)
+function draw() {
+  background(220);
 
-    let foldAngle = mouseY / 5
+  textSize(30);         
+  textAlign(CENTER);    
+  fill(0);               
 
-    foldAngle = constrain(foldAngle,0,100)
-    
+  text("MOM:CLEAN UP YOUR CLOTHES!", width / 2, 170);
 
-    translate(0,-150,0)
+  let foldAngle = map(mouseY, 0, height, 0, 160);
+  foldAngle = constrain(foldAngle, 0, 160);
 
-    rotateX(foldAngle)
+  translate(width / 2, 100);
 
-    translate(0,25,0)
+  // 허리
+  fill(100, 140, 190);
+  rect(0, 0, 200, 50);
 
-    fill(150)
-    stroke(0)
-    plane(200,50)
+  // 오른쪽 다리
+  push();
 
-    push()
+  translate(50, 25);
+  rotate(-10);
 
-    translate(0,50,0)
+  // 허벅지 중심
+  translate(0, 75);
+  rect(0, 0, 90, 150);
 
-    rotateX(foldAngle)
+  // 무릎으로 이동
+  translate(0, 75);
 
-    translate(50,50,40)
-    rotateZ(-10)
+  // 무릎에서 접기
+  rotate(foldAngle);
 
-    fill(150)
-    stroke(0)
-    plane(100,150)
+  // 종아리 중심
+  translate(0, 75);
+  rect(0, 0, 90, 150);
 
-    translate(0,150,0)
+  pop();
 
-    fill(150)
-    stroke(0)
-    plane(100,150)
+  // 왼쪽 다리
+  push();
 
-    pop()
+  translate(-50, 25);
+  rotate(10);
 
-    push()
+  translate(0, 75);
+  rect(0, 0, 90, 150);
 
-    translate(0,50,0)
+  translate(0, 75);
+  rotate(-foldAngle);
 
-    rotateX(foldAngle)
+  translate(0, 75);
+  rect(0, 0, 90, 150);
 
-    translate(-50,50,40)
-    rotateZ(10)
-
-    fill(150)
-    stroke(0)
-    plane(100,150)
-
-    translate(0,150,0)
-
-    fill(150)
-    stroke(0)
-    plane(100,150)
-
-    pop()
-    
-
-    // push()
-
-    // translate(100,-150,0)
-
-    // rotateX(foldAngle)
-
-    // translate(0,150,0)
-
-    // fill(150)
-    // noStroke(0)
-    // plane(100,150)
-
-    // pop()
-
-    
+  pop();
 }
-
-//  translate(450,height/2) // rotate and translate order changes the pivot point of the rotation
-//     rotate(r)
-//     rect(0,0, 50)
-
-//     line(0,0,0,200)
-
-//     translate(0,200) // rotate and translate order changes the pivot point of the rotation
-//     rotate(-r) //remove rotate stops self rotation
-//     rect(0,0, 50)
-
-//     line(0,0,0,200)
-
-//     translate(0,200) // rotate and translate order changes the pivot point of the rotation
-//     rotate(-r) //remove rotate stops self rotation
-//     rect(0,0, 50)

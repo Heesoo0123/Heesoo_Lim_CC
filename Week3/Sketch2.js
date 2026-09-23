@@ -1,4 +1,3 @@
-let r = 0
 
 function setup(){
 
