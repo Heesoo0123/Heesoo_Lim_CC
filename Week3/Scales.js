@@ -64,36 +64,5 @@ for(let x = 0; x<numRects; x++){
 
 }
 
-
-// r++
-
 }
 
-//   for(let x = 0; x<numRects; x++){
-
-//         for(let y = 0; y<numRects; y++){
-
-//         push()
-//         translate( w * x, h * y)
-//         rotate(r*y)
-//         rect(0,0,10 + y*2,h/2);
-//         pop()
-
-//    }
-
-// }
- 
-// for(let x = 0; x<numRects; x++){
-
-//         for(let y = 0; y<numRects; y++){
-
-//             for(let i = 0; i<5; i++){
-
-//         push()
-//         translate( w * x, h * y)
-//         rect(0,0,w-3*i,h-10*1);
-//         pop()
-
-//    }
-
-// }
