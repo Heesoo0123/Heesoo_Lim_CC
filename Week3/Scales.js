@@ -1,7 +1,7 @@
 let r = 0
 
 let w, h;
-let numRects = 15;
+let numRects = 10;
 
 function setup(){
 
@@ -46,8 +46,8 @@ for(let x = 0; x<numRects; x++){
         push();
         translate( w * x, h * y)
 
-        let outerColor = color(32,72,80)
-        let innerColor = color(210,230,231)
+        let outerColor = color(31,65,162)
+        let innerColor = color(232,11,26)
 
         for(let i = 0; i < 40; i++){
             let t = i / 39;
