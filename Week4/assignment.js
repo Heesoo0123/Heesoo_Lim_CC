@@ -7,6 +7,7 @@ function setup() {
 
 function draw() {
   background(255);
+  // beginRecordSvg("squares.svg");
 
   for (let x = 0; x < 8; x++) {
     for (let y = 0; y < 5; y++) {
@@ -15,4 +16,6 @@ function draw() {
       rect(40 + x * 70, 40 + y * 70,size,size);
     }
   }
+  // endRecordSvg()
+  // noLoop()
 }
