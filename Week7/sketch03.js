@@ -1,3 +1,6 @@
+let aquariumVideo;
+const VIDEO_OPACITY = 0.45; // 0 = invisible, 1 = opaque.
+const VIDEO_BLUR = 10; // Pixels, matching the aquarium light.
 let fishX = [];
 let fishY = [];
 let fishSpeed = [];
@@ -9,6 +12,14 @@ let numFish = 8;
 
 function setup() {
   createCanvas(1000, 700);
+  aquariumVideo = createVideo('42696-432087106_medium.mp4');
+  aquariumVideo.hide();
+  aquariumVideo.elt.muted = true;
+  aquariumVideo.elt.loop = true;
+  aquariumVideo.elt.playsInline = true;
+  aquariumVideo.elt.addEventListener('loadeddata', startAquariumVideo);
+  // A click also starts playback if the browser blocks autoplay.
+  drawingContext.canvas.addEventListener('pointerdown', startAquariumVideo);
 
   for (let i = 0; i < numFish; i++) {
     fishX[i] = random(150, width - 150);
@@ -22,7 +33,8 @@ function setup() {
 
 function draw() {
   background(0,0,6);
-  drawBackground()
+  drawBackground();
+  drawAquariumVideo();
   
 
   for (let i = 0; i < numFish; i++) {
@@ -58,10 +70,12 @@ function drawBackground() {
   noStroke();
 
   // 1. Blurred purple light
-  drawingContext.filter = 'blur(80px)';
+  drawingContext.filter = 'blur(10px)';
 
   fill(3,0,209);
-  rect(70, 150, 900, 400);
+  rect(50, 150, 900, 400);
+  fill(255);
+  rect(50, 150, 900, 50);
 
 //   fill(0)
 //   rect(300, 150, 500, 200);
@@ -73,11 +87,11 @@ function drawBackground() {
   drawingContext.filter = 'none';
 
   // 3. Aquarium walls (sharp)
-//   fill(60, 50, 45);
-//   stroke(150)
-//   strokeWeight(1)
-//   rect(60, 0, 50, height);
-//   rect(860, 0, 50, height);
+  // fill(60, 50, 45);
+  // stroke(150)
+  // strokeWeight(1)
+  // rect(60, 0, 50, height);
+  // rect(860, 0, 50, height);
 
  
 }
@@ -134,3 +148,32 @@ function drawFish(x, y, s) {
 
   pop();
 }
+function startAquariumVideo() {
+  if (aquariumVideo) {
+    const playback = aquariumVideo.elt.play();
+    if (playback) playback.catch(() => {}); // Retry on canvas click.
+  }
+}
+
+function drawAquariumVideo() {
+  if (!aquariumVideo || aquariumVideo.elt.readyState < 2) return;
+
+  push();
+  const context = drawingContext;
+  const previousFilter = context.filter;
+  context.save();
+  try {
+    // Keep the video inside the existing blue rectangle.
+    context.beginPath();
+    context.rect(50, 150, 900, 400);
+    context.clip();
+    context.globalAlpha = VIDEO_OPACITY;
+    context.filter = 'blur(' + VIDEO_BLUR + 'px)';
+    context.drawImage(aquariumVideo.elt, 50, 150, 900, 400);
+  } finally {
+    context.restore();
+    context.filter = previousFilter;
+    pop();
+  }
+}
+
