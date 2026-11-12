@@ -2,8 +2,8 @@ let handPose;
 let video;
 let hands = [];
 
-let tileSize = 20; // size of each square in pixels
-let spread = 1;    // 1 = normal picture, bigger = squares further apart
+let tileSize = 20; 
+let spread = 1;    
 
 
 async function setup() {
@@ -51,7 +51,7 @@ function draw() {
 
   for (let y = 0; y < height; y += tileSize) {
     for (let x = 0; x < width; x += tileSize) {
-      // center of this square in the original video
+      
       let cx = x + tileSize / 2;
       let cy = y + tileSize / 2;
 
